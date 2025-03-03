@@ -6,13 +6,14 @@
     --heading-font: "Raleway", sans-serif;
     --nav-font: "Poppins", sans-serif;
 
-    --color-blanco: #ffffff; /* color-Fondo*/
-    --color-azulOscuro: #091424; /* Color de títulos */
-    --color-azulMedio: #12263A; /* Color para divs encima del fondo */
-    --color-azulClaro: #149ddd; /* Color destacado para botones y enlaces */
-    --color-verdeClaro: #1CB698; /* Color destacado para botones y enlaces */
+    --color-blanco: #ffffff;
+    --color-azulOscuro: #091424;
+    --color-azulMedio: #12263A; 
+    --color-azulClaro: #149ddd; 
+    --color-verdeClaro: #1CB698; 
 }
 
+/* ESTILOS GENERALES*/
 * {
     box-sizing: border-box;
     font-family: var(--default-font);
@@ -25,7 +26,7 @@ html {
 }
 
 body {
-    background-color: #091424;
+    background-color: var(--color-azulOscuro);
 }
 
 /* ESTILOS DEL MENÚ */
@@ -121,21 +122,19 @@ body {
 }
 
 
-
 /* SECCIÓN SKILLS */
+
 .skills {
     background-color: var(--color-azulMedio);
     color: var(--color-blanco);
     padding: 50px 20px;
 }
 
-/* Contenedor principal */
 .skills .contenido-seccion {
     max-width: 1100px;
     margin: auto;
 }
 
-/* Título */
 .skills h2 {
     font-size: 48px;
     font-family: var(--heading-font);
@@ -144,7 +143,6 @@ body {
     color: var(--color-azulClaro);
 }
 
-/* Diseño en cuadrícula para las habilidades */
 .grid-skills {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -153,7 +151,6 @@ body {
     padding: 20px;
 }
 
-/* Estilo individual para cada skill */
 .skill {
     background-color: var(--color-azulOscuro);
     padding: 15px;
@@ -162,7 +159,6 @@ body {
     font-family: var(--heading-font);
 }
 
-/* Nombre de la skill */
 .skill h4 {
     font-size: 20px;
     font-weight: bold;
@@ -170,7 +166,6 @@ body {
     color: var(--color-blanco);
 }
 
-/* Nivel de habilidad */
 .level {
     font-size: 16px;
     font-weight: 500;
@@ -180,6 +175,15 @@ body {
     display: inline-block;
     font-family: var(--nav-font);
 }
+
+.stars {
+    font-size: 20px;
+    color: gold;
+    display: flex;
+    justify-content: center;
+    gap: 3px;
+}
+
 
 /*SECCION CURRICULUM*/
 
@@ -646,50 +650,90 @@ footer .arriba:hover{
     border: 2px solid var(--color-blanco);
 }
 
+
 /* SECCION RESPONSIVE */
-@media screen and (max-width:980px) {
-    nav{
+/* Estilos del menú responsive */
+.nav-responsive {
+    display: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--color-blanco);
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-responsive.active {
+    color: var(--color-azulClaro);
+}
+
+
+/* Ajustes para el menú responsive */
+@media screen and (max-width: 980px) {
+    nav {
         display: none;
     }
-    .nav-responsive{
+
+    .nav-responsive {
         display: block;
     }
-    nav.reponsive{
-        display: block;
+
+    nav.responsive {
+        display: flex; 
+        flex-direction: column; 
         position: absolute;
         right: 0;
         top: 75px;
         background-color: var(--color-azulOscuro);
-        width: 180px;
+        width: 100%; 
+        text-align: center;
+        z-index: 100;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+        border-radius: 0 0 5px 5px;
     }
-    nav.responsibe ul{
-        display: block !important;
-    }
-    nav.responsive ul li{
-        border-top: 1px, solid, var(--color-blanco);
+
+    nav.responsive ul {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
         padding: 10px 0;
+    }
+
+    nav.responsive ul li {
+        width: 100%;
+        padding: 15px 0;
+        border-top: 1px solid var(--color-blanco);
+    }
+
+    nav.responsive ul li:first-child {
+        border-top: none;
+    }
+
+    nav.responsive ul li a {
+        display: block;
+        width: 100%;
+        color: var(--color-blanco);
+        text-decoration: none;
+        font-size: 18px;
+        padding: 10px 0;
+        transition: background 0.3s ease-in-out;
+    }
+
+    nav.responsive ul li a:hover {
+        background-color: var(--color-azulClaro);
+        color: var(--color-blanco);
     }
 }
 
+
 /* RESPONSIVE */
 @media screen and (max-width:700px){
-    .sobremi .fila{
-        display: block;
-    }
-    .sobremi .fila .col{
-        width: fit-content
-    }
-
+  
     .skills .fila{
         display: block;
     }
     .skills .fila .col{
         width: 100%;
     }
-    .skills .fila .col .barra-skill{
-        width: 100%;
-    }
-
+    
     .curriculum .fila{
         display: block;
     }

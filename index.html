@@ -71,7 +71,7 @@
                             <img src="img/gascash.png" alt="Proyecto 1">
                             <div class="overlay">
                                 <h3>Videojuego Gash & Cash</h3>
-                                <p>Videojuego 2D multiplataforma. Creado con Godot engine</p>
+                                <p>Videojuego 2D multiplataforma (Windows y Android). Creado con Godot engine</p>
                             </div>
                         </a>
                     </div>
@@ -82,7 +82,7 @@
                             <img src="img/hourly.png" alt="Proyecto 2">
                             <div class="overlay">
                                 <h3>App Hourly</h3>
-                                <p>Aplicaión Móvil de gestión del tiempo para Android. Creada con Kotlin y Android Studio.</p>
+                                <p>Aplicación Móvil para gestión del tiempo de trabajo. Soportada en Android. Desarrollada con Kotlin y Android Studio.</p>
                             </div>
                         </a>
                     </div>
@@ -93,16 +93,25 @@
                             <img src="img/concesionario.png" alt="Proyecto 3">
                             <div class="overlay">
                                 <h3>Gestor de Vehículos</h3>
-                                <p>Programa gestor de vehículos para un concesionario. Creado con Java y MySQL</p>
+                                <p>Aplicación de escritorio destinada a la gestión de vehículos para un concesionario. Creado con Java y  bases de datos SQL</p>
                             </div>
                         </a>
                     </div>
                     <div class="proyecto">
                         <a href="https://www.ejemplo-proyecto3.com" target="_blank">
-                            <img src="img/p2.jpg" alt="Proyecto 3">
+                            <img src="img/jhipster.png" alt="Proyecto 3">
                             <div class="overlay">
-                                <h3>Proyecto 3</h3>
-                                <p>Plataforma de e-commerce.</p>
+                                <h3>Implantación de JHipster</h3>
+                                <p>Plataforma full-stack desarrollada con SpringBoot (Java y Kotlin) y apoyada en Angular, React y Vue para garantizar la gestión integrar de un app web.</p>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="proyecto">
+                        <a href="https://www.ejemplo-proyecto3.com" target="_blank">
+                            <img src="img/oracle.png" alt="Proyecto 3">
+                            <div class="overlay">
+                                <h3>Gestor Base de datos Oracle</h3>
+                                <p>Controlador de base de datos Oracle para Java.</p>
                             </div>
                         </a>
                     </div>
@@ -209,67 +218,68 @@
             <h2>Tecnologías</h2>
             <div class="grid-skills">
                 <div class="skill">
-
                     <h4>Java</h4>
-                    <i class="fa-brands fa-python"></i>
-                    <span class="level">Experto</span>
+                    <div class="stars" data-level="5"></div>
                 </div>
-
+    
                 <div class="skill">
                     <h4>HTML, CSS & JS</h4>
-                    <span class="level">Intermedio</span>
+                    <div class="stars" data-level="3"></div>
                 </div>
-
+    
                 <div class="skill">
                     <h4>Python</h4>
-                    <span class="level">Intermedio</span>
+                    <div class="stars" data-level="3"></div>
                 </div>
-
+    
                 <div class="skill">
                     <h4>Bases de Datos</h4>
-                    <span class="level">Avanzado</span>
+                    <div class="stars" data-level="4"></div>
                 </div>
-
+    
                 <div class="skill">
                     <h4>Kotlin</h4>
-                    <span class="level">Intermedio</span>
+                    <div class="stars" data-level="3"></div>
                 </div>
-
+    
                 <div class="skill">
                     <h4>Godot</h4>
-                    <span class="level">Intermedio</span>
+                    <div class="stars" data-level="3"></div>
                 </div>
-
+    
                 <div class="skill">
                     <h4>React</h4>
-                    <span class="level">Básico</span>
+                    <div class="stars" data-level="2"></div>
                 </div>
-
+    
                 <div class="skill">
                     <h4>Hibernate</h4>
-                    <span class="level">Básico</span>
+                    <div class="stars" data-level="2"></div>
                 </div>
             </div>
         </div>
     </section>
+    
 
 
 
-      <!-- SECCION CONTACTO-->
-    <section id="contacto" class="contacto">
-        <div class="contenido-seccion">
-            <h2>Contacto</h2>
-            <p>Si crees que podemos colaborar no dudes en enviarme un mensaje. También puedes descargar mi CV en PDF para conocer más sobre mi perfil profesional.</p>
-            
-            <div class="fila">
-                <!--Formulario-->
-                <div class="col">
-                    <input type="text" placeholder="Nombre">
-                    <input type="text" placeholder="Telefóno">
-                    <input type="text" placeholder="Email">
-                    <input type="text" placeholder="Asunto">
-                    <textarea name="" id="" cols="30" rows"10" placeholder="Mensaje"></textarea>
-                    <div class="fila">                    <button>
+<!-- SECCIÓN CONTACTO -->
+<section id="contacto" class="contacto">
+    <div class="contenido-seccion">
+        <h2>Contacto</h2>
+        <p>Si crees que podemos colaborar no dudes en enviarme un mensaje. También puedes descargar mi CV en PDF para conocer más sobre mi perfil profesional.</p>
+        
+        <div class="fila">
+            <!-- Formulario -->
+            <div class="col">
+                <input type="text" id="nombre" placeholder="Nombre" required>
+                <input type="text" id="telefono" placeholder="Teléfono">
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="asunto" placeholder="Asunto">
+                <textarea id="mensaje" cols="30" rows="10" placeholder="Mensaje" required></textarea>
+                
+                <div class="fila">
+                    <button id="enviarMensaje">
                         Enviar Mensaje <i class="fa-solid fa-paper-plane"></i>
                         <span class="overlay"></span>
                     </button>
@@ -277,14 +287,13 @@
                         Descargar CV <i class="fa-solid fa-download"></i>
                         <span class="overlay"></span>
                     </button>
-                    </div>
-                </div>
-
                 </div>
             </div>
-            
         </div>
-    </section>
+    </div>
+</section>
+
+
     
       <!--FOOTER-->
     <footer>
@@ -302,7 +311,8 @@
     </footer>
 
 
-      
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
      <script src="script.js"></script>
 </body>
 
