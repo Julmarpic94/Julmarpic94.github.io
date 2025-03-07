@@ -35,44 +35,39 @@ setInterval(() => {
     moverCarrusel(1);
 }, 8000);
 
-// Estado del menú
+// ESTADO MENU RESPONSIVE
 let menuVisible = false;
 
 function mostrarOcultarMenu() {
     const nav = document.getElementById("nav");
-    const menuIcon = document.querySelector(".nav-responsive i");
+    const menuButton = document.querySelector(".nav-responsive");
 
     nav.classList.toggle("responsive");
     menuVisible = !menuVisible;
 
-    // Cambia el icono de hamburguesa a "X"
+    // Cambia de color al hacer clic
     if (menuVisible) {
-        menuIcon.classList.remove("fa-bars");
-        menuIcon.classList.add("fa-times"); // Ícono de "cerrar" (X)
+        menuButton.classList.add("active");
     } else {
-        menuIcon.classList.remove("fa-times");
-        menuIcon.classList.add("fa-bars"); // Ícono de hamburguesa (☰)
+        menuButton.classList.remove("active");
     }
 }
 
 // Cierra el menú al hacer clic en una opción
 function seleccionar() {
     const nav = document.getElementById("nav");
-    const menuIcon = document.querySelector(".nav-responsive i");
+    const menuButton = document.querySelector(".nav-responsive");
 
     nav.classList.remove("responsive");
     menuVisible = false;
-
-    // Restaurar el icono de hamburguesa
-    menuIcon.classList.remove("fa-times");
-    menuIcon.classList.add("fa-bars");
+    
+    // Restaurar color original
+    menuButton.classList.remove("active");
 }
 
-
-
-// ENVIO DE CORREOS DESDE EL FORMULARIO
+// ENVÍO DE CORREOS DESDE EL FORMULARIO
 document.addEventListener("DOMContentLoaded", function () {
-    // Key para usar el servidor de correos
+    // Inicializar EmailJS
     emailjs.init("TDHJGGfmCUfelwPIs"); // Reemplaza con tu Public Key
 
     document.getElementById("enviarMensaje").addEventListener("click", function (event) {
@@ -97,7 +92,6 @@ document.addEventListener("DOMContentLoaded", function () {
             mensaje: mensaje
         };
 
-        // Enviar mensaje de contacto
         emailjs.send("servicio_outlook", "plantilla_contacto", templateParams)
             .then(function (response) {
                 console.log("Mensaje enviado con éxito ✅", response.status, response.text);
@@ -127,7 +121,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.removeChild(link);
     });
 
-    // GESTION DE LAS ESTRELLAS
+    // GESTIÓN DE LAS ESTRELLAS
     const skills = document.querySelectorAll(".stars");
 
     skills.forEach(skill => {
@@ -144,4 +138,26 @@ document.addEventListener("DOMContentLoaded", function () {
 
         skill.innerHTML = starsHTML;
     });
+
+    // 🔹 INICIALIZAR TYPED.JS
+    const typedElement = document.querySelector(".typed");
+    
+    if (typedElement) {
+        new Typed(".typed", {
+            strings: [
+                "Desarrollador Multiplataforma",
+                "Android Developer",
+                "Redactor SEO"
+            ],
+            typeSpeed: 50,  // Velocidad de escritura
+            backSpeed: 30,  // Velocidad de borrado
+            startDelay: 500, // Tiempo antes de empezar a escribir
+            backDelay: 1500, // Tiempo antes de borrar la palabra
+            loop: true, // Hace que se repita en bucle
+            showCursor: true, // Muestra el cursor parpadeante
+            cursorChar: "|", // Personaliza el cursor
+        });
+    } else {
+        console.warn("Elemento .typed no encontrado en el DOM");
+    }
 });
