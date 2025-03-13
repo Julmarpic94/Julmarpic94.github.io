@@ -161,3 +161,88 @@ document.addEventListener("DOMContentLoaded", function () {
         console.warn("Elemento .typed no encontrado en el DOM");
     }
 });
+
+// CAMBIO DE IDIOMA DEL TEXTO
+
+document.addEventListener("DOMContentLoaded", function () {
+    const texts = {
+        es: {
+            name: "JULIÁN MARTÍNEZ",
+            role: ["Desarrollador Multiplataforma", "Android Developer", "Redactor SEO"],
+            contactText: "Si crees que podemos colaborar no dudes en enviarme un mensaje. También puedes descargar mi CV en PDF para conocer más sobre mi perfil profesional.",
+            projects: "Proyectos",
+            curriculum: "Currículum",
+            skills: "Tecnologías",
+            contact: "Contacto"
+        },
+        en: {
+            name: "JULIAN MARTINEZ",
+            role: ["Multiplatform Developer", "Android Developer", "SEO Writer"],
+            contactText: "If you think we can collaborate, don't hesitate to send me a message. You can also download my CV in PDF to learn more about my professional profile.",
+            projects: "Projects",
+            curriculum: "Curriculum",
+            skills: "Technologies",
+            contact: "Contact"
+        }
+    };
+
+    const switchToggle = document.getElementById("language-switch");
+    const leftFlag = document.querySelector(".flag-icon-left");
+    const rightFlag = document.querySelector(".flag-icon-right");
+    const nameElement = document.querySelector("h1");
+    const typedElement = document.querySelector(".typed");
+    const contactText = document.querySelector("#contacto p");
+    const projectsTitle = document.querySelector("#portfolio h2");
+    const curriculumTitle = document.querySelector("#curriculum h2");
+    const skillsTitle = document.querySelector("#skills h2");
+    const contactTitle = document.querySelector("#contacto h2");
+
+    function changeLanguage(lang) {
+        localStorage.setItem("language", lang);
+
+        // Cambiar textos
+        nameElement.textContent = texts[lang].name;
+        contactText.textContent = texts[lang].contactText;
+        projectsTitle.textContent = texts[lang].projects;
+        curriculumTitle.textContent = texts[lang].curriculum;
+        skillsTitle.textContent = texts[lang].skills;
+        contactTitle.textContent = texts[lang].contact;
+
+        // Reiniciar Typed.js con los nuevos textos
+        typedElement.innerHTML = "";
+        new Typed(".typed", {
+            strings: texts[lang].role,
+            typeSpeed: 50,
+            backSpeed: 30,
+            startDelay: 500,
+            backDelay: 1500,
+            loop: true,
+            showCursor: true,
+            cursorChar: "|"
+        });
+
+        // Actualizar los bordes de las banderas
+        if (lang === "en") {
+            rightFlag.style.borderColor = "var(--color-azulClaro)";
+            leftFlag.style.borderColor = "white";
+        } else {
+            leftFlag.style.borderColor = "var(--color-azulClaro)";
+            rightFlag.style.borderColor = "white";
+        }
+    }
+
+    // Detectar el idioma guardado en localStorage o establecer español por defecto
+    const savedLanguage = localStorage.getItem("language") || "es";
+    switchToggle.checked = savedLanguage === "en"; // Activa el interruptor si el idioma es inglés
+    changeLanguage(savedLanguage);
+
+    // Evento para cambiar el idioma al activar el interruptor
+    switchToggle.addEventListener("change", function () {
+        if (switchToggle.checked) {
+            changeLanguage("en");
+        } else {
+            changeLanguage("es");
+        }
+    });
+});
+
