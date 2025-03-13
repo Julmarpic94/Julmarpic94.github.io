@@ -1,134 +1,105 @@
-🌐 Aplicación JHipster con Base de Datos Definida en JDL
-🚀 Aplicación web generada con JHipster, utilizando una base de datos definida con JHipster Domain Language (JDL). Este proyecto sigue una arquitectura Spring Boot + Angular/React/Vue + SQL/NoSQL, facilitando la creación de aplicaciones robustas y escalables.
 
-🚀 Características Principales
-✅ Generación automática del backend con Spring Boot
-✅ Generación del frontend con Angular / React / Vue
-✅ Configuración de seguridad con Spring Security y JWT
-✅ Conexión a bases de datos SQL/NoSQL con JPA / Hibernate
-✅ Definición del modelo de datos mediante JDL
-✅ API RESTful autogenerada con Swagger
-✅ Gestión de usuarios y autenticación integrada
+
+
+Readme Portfolio
+🎨 Portfolio de Julián Martínez
+Bienvenido a mi portafolio en línea, donde muestro mis proyectos, habilidades y experiencia en desarrollo de software y creación de contenido digital.
+
+🚀 Visita el sitio web: https://julmarpic.itch.io/
+
+📌 Descripción
+Este portafolio ha sido diseñado para reflejar mi experiencia y proyectos en desarrollo multiplataforma, videojuegos y aplicaciones web y móviles. Incluye secciones sobre mi educación, experiencia laboral, habilidades tecnológicas y formas de contacto.
 
 🛠 Tecnologías Utilizadas
-Backend: Java + Spring Boot
-Frontend: Angular / React / Vue (según configuración)
-Base de datos: PostgreSQL / MySQL / MongoDB / H2
-ORM: JPA / Hibernate
-Seguridad: Spring Security + JWT
-Herramientas: JHipster CLI + JDL Studio
-📦 Instalación y Configuración
-1️⃣ Instalar dependencias
-Asegúrate de tener instaladas las siguientes herramientas:
+Este proyecto ha sido desarrollado utilizando las siguientes tecnologías:
 
-Node.js y npm: https://nodejs.org/
-JHipster CLI:
-bash
-Copy
-Edit
-npm install -g generator-jhipster
-Base de datos (según configuración del proyecto).
-2️⃣ Clonar el repositorio
-bash
-Copy
-Edit
-git clone https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio
-3️⃣ Generar la Aplicación con JHipster
-Si necesitas regenerar el proyecto:
+HTML5 – Estructura del sitio web
 
-bash
-Copy
-Edit
-jhipster
-Sigue las opciones del asistente interactivo para configurar el stack de tecnologías.
+CSS3 – Estilos y diseño responsivo
 
-📂 Generación y Configuración de la Base de Datos con JDL
-1. Definir el modelo de datos en JDL
-Ejemplo de archivo modelo.jdl:
+JavaScript – Funcionalidad interactiva
 
-jdl
-Copy
-Edit
-entity Coche {
-  marca String required,
-  modelo String required,
-  precio BigDecimal required
-}
+Typed.js – Efecto de texto dinámico en la sección de presentación
 
-entity Cliente {
-  nombre String required,
-  email String required
-}
+FontAwesome – Iconos visuales
 
-relationship OneToMany {
-  Cliente{coches} to Coche{cliente}
-}
+EmailJS – Envío de correos electrónicos desde el formulario de contacto
 
-paginate Coche, Cliente with pagination
-2. Importar el JDL y generar entidades
-Ejecuta el siguiente comando en la raíz del proyecto:
+📂 Estructura del Proyecto
+📂 Portfolio
+│── 📜 index.html       # Archivo principal del portafolio
+│── 📜 estilo.css       # Archivo de estilos
+│── 📜 script.js        # Archivo de funciones interactivas
+│── 📂 img             # Carpeta de imágenes y logos
+│── 📂 assets          # Recursos adicionales
+🎨 Secciones del Portafolio
+🔹 Menú de Navegación
+INICIO – Introducción y enlaces a redes sociales
 
-bash
-Copy
-Edit
-jhipster import-jdl modelo.jdl
-Esto generará automáticamente: ✅ Las entidades y sus relaciones en Java (JPA/Hibernate)
-✅ Los archivos de migración para la base de datos (Liquibase/Flyway)
-✅ Las API REST en Spring Boot
-✅ La interfaz en Angular/React/Vue
+PROYECTOS – Muestra los proyectos en los que he trabajado
 
-3. Configurar la conexión a la base de datos
-Abre el archivo src/main/resources/config/application-dev.yml y verifica la configuración de conexión:
+CURRICULUM – Información sobre mi educación y experiencia laboral
 
-yaml
-Copy
-Edit
-spring:
-  datasource:
-    url: jdbc:postgresql://localhost:5432/concesionario
-    username: tu_usuario
-    password: tu_contraseña
-4. Ejecutar la aplicación
-Levantar la base de datos (si usas Docker):
-bash
-Copy
-Edit
-docker-compose up -d
-Ejecutar el backend (Spring Boot):
-bash
-Copy
-Edit
-./mvnw
-Ejecutar el frontend (Angular/React/Vue):
-bash
-Copy
-Edit
-npm start
-📂 Estructura del Proyecto JHipster
-bash
-Copy
-Edit
-📂 mi-aplicacion-jhipster
-│── 📂 src
-│   ├── 📂 main
-│   │   ├── 📂 java/com/tuapp        # Código backend (Spring Boot)
-│   │   ├── 📂 resources             # Configuración y archivos SQL
-│   ├── 📂 webapp                    # Código frontend (Angular/React/Vue)
-│── 📂 jdl                            # Archivos JDL
-│── 📂 docker                         # Configuración Docker
-│── README.md                         # Documentación del proyecto
-🔄 Contribuciones
-¡Las contribuciones son bienvenidas! 🚀
+TECNOLOGÍAS – Lista de herramientas y tecnologías que domino
 
-Haz un fork del repositorio
-Crea una nueva rama (git checkout -b feature-nueva-funcionalidad)
-Realiza tus cambios y haz un commit (git commit -m "Añadida nueva funcionalidad")
-Sube los cambios (git push origin feature-nueva-funcionalidad)
-Abre un Pull Request
-📝 Licencia
-Este proyecto está bajo la Creative Commons (CC BY-NC 4.0), lo que significa que puedes compartir y modificar el código, pero no utilizarlo para fines comerciales sin el permiso del autor.
+CONTACTO – Formulario de contacto y descarga de CV
 
-👨‍💻 Autor
-✍️ Julián Martínez
-📩 Contacto: julmarpic94.github.io
+🔹 Proyectos Destacados
+Gas & Cash – Videojuego 2D multiplataforma (Windows y Android) desarrollado con Godot Engine
+
+Hourly App – Aplicación de gestión del tiempo de trabajo con Kotlin y Android Studio
+
+Gestor de Reservas – Aplicación de escritorio para reservas de restaurantes, desarrollada con Java y SQLite
+
+Gestor de Vehículos – Sistema de gestión de concesionarios en Java con bases de datos SQL
+
+Implantación de JHipster – Plataforma full-stack con Spring Boot, Angular, React y Vue
+
+Controlador de Base de Datos Oracle – Implementado en Java
+
+Adivina la Provincia – Juego educativo en Python con Turtle
+
+📜 Curriculum
+📚 Educación
+Desarrollo de Aplicaciones Multiplataforma – IES Cañada de la Encina (2023-2025)
+
+Grado en Periodismo – Universidad de Castilla-La Mancha (2014-2018)
+
+Máster en Marketing y Comunicación Digital – IMF Business School (2019-2020)
+
+💼 Experiencia Laboral
+Experiencia internacional en Irlanda (2021-2023)
+
+Redactor especializado en el sector motor en SoyMotero.es (2020-2022)
+
+Community Manager en ADECA & CUSFIT (2018-2020)
+
+🛠 Habilidades Técnicas
+Lenguajes de Programación: Java, Kotlin, Python, JavaScript
+
+Bases de Datos: Oracle, SQLite, MongoDB, MariaDB
+
+Desarrollo de Videojuegos: Godot Engine
+
+Desarrollo Web: HTML, CSS, JavaScript, React
+
+Frameworks: Spring Boot, Hibernate
+
+Marketing Digital: SEO, SEM, Branding, Google Analytics
+
+📬 Contacto
+Si crees que podemos colaborar, no dudes en enviarme un mensaje.
+
+📧 Email: (Agregar email si aplica)
+🔗 LinkedIn: Perfil en LinkedIn
+🐙 GitHub: Perfil en GitHub
+🎮 Itch.io: Perfil en Itch.io
+
+📄 Descarga mi CV en PDF – (Agregar enlace si aplica)
+
+📜 Licencia
+Este portafolio es de código abierto y está disponible bajo la licencia Creative Commons.
+
+🎨 Autor: Julián Martínez
+🚀 Última actualización: (Fecha de la última actualización)
+
