@@ -145,9 +145,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (typedElement) {
         new Typed(".typed", {
             strings: [
-                "Desarrollador Multiplataforma",
-                "Android Developer",
-                "Redactor SEO"
+                "Multiplatform Developer", "Android Developer", "SEO Writer"
             ],
             typeSpeed: 50,  // Velocidad de escritura
             backSpeed: 30,  // Velocidad de borrado
@@ -163,86 +161,105 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // CAMBIO DE IDIOMA DEL TEXTO
-
 document.addEventListener("DOMContentLoaded", function () {
     const texts = {
         es: {
-            name: "JULIÁN MARTÍNEZ",
-            role: ["Desarrollador Multiplataforma", "Android Developer", "Redactor SEO"],
             contactText: "Si crees que podemos colaborar no dudes en enviarme un mensaje. También puedes descargar mi CV en PDF para conocer más sobre mi perfil profesional.",
             projects: "Proyectos",
             curriculum: "Currículum",
             skills: "Tecnologías",
-            contact: "Contacto"
+            contact: "Contacto",
+
+            // Formulario de contacto
+            namePlaceholder: "Nombre",
+            phonePlaceholder: "Teléfono",
+            emailPlaceholder: "Email",
+            subjectPlaceholder: "Asunto",
+            messagePlaceholder: "Mensaje",
+            sendMessage: "Enviar Mensaje",
+            downloadCV: "Descargar CV",
+
+            // Proyectos
+            projectsList: [
+                { title: "Videojuego Gash & Cash", desc: "Videojuego 2D multiplataforma (Windows y Android). Creado con Godot engine." },
+                { title: "App Hourly", desc: "Aplicación Móvil para gestión del tiempo de trabajo. Soportada en Android. Desarrollada con Kotlin y Android Studio." },
+                { title: "Gestor de Reservas", desc: "Aplicación de escritorio destinada a la gestión de reservas, clientes y trabajadores para un restaurante. Creado con Java y bases de datos SQLite." },
+                { title: "Gestor de Vehículos", desc: "Aplicación de escritorio destinada a la gestión de vehículos para un concesionario. Creado con Java y bases de datos SQL." },
+                { title: "Implantación de JHipster", desc: "Plataforma full-stack desarrollada con SpringBoot (Java y Kotlin) y apoyada en Angular, React y Vue para garantizar la gestión de una app web." },
+                { title: "Gestor Base de datos Oracle", desc: "Controlador de base de datos Oracle para Java." },
+                { title: "Adivina la provincia", desc: "Juego creado en Python con turtle donde el usuario debe adivinar las provincias de España en un mapa interactivo." }
+            ]
         },
         en: {
-            name: "JULIAN MARTINEZ",
-            role: ["Multiplatform Developer", "Android Developer", "SEO Writer"],
             contactText: "If you think we can collaborate, don't hesitate to send me a message. You can also download my CV in PDF to learn more about my professional profile.",
             projects: "Projects",
             curriculum: "Curriculum",
             skills: "Technologies",
-            contact: "Contact"
+            contact: "Contact",
+
+            // Contact form
+            namePlaceholder: "Name",
+            phonePlaceholder: "Phone",
+            emailPlaceholder: "Email",
+            subjectPlaceholder: "Subject",
+            messagePlaceholder: "Message",
+            sendMessage: "Send Message",
+            downloadCV: "Download CV",
+
+            // Projects
+            projectsList: [
+                { title: "Gash & Cash Videogame", desc: "2D cross-platform video game (Windows and Android). Created with Godot engine." },
+                { title: "Hourly App", desc: "Mobile application for work time management. Supported on Android. Developed with Kotlin and Android Studio." },
+                { title: "Reservation Manager", desc: "Desktop application for managing reservations, customers, and employees in a restaurant. Created with Java and SQLite databases." },
+                { title: "Vehicle Manager", desc: "Desktop application for vehicle management in a dealership. Created with Java and SQL databases." },
+                { title: "JHipster Implementation", desc: "Full-stack platform developed with SpringBoot (Java and Kotlin) and supported in Angular, React, and Vue to ensure web app management." },
+                { title: "Oracle Database Manager", desc: "Oracle database controller for Java." },
+                { title: "Guess the Province", desc: "Game created in Python with turtle where the user must guess the provinces of Spain on an interactive map." }
+            ]
         }
     };
 
     const switchToggle = document.getElementById("language-switch");
     const leftFlag = document.querySelector(".flag-icon-left");
     const rightFlag = document.querySelector(".flag-icon-right");
-    const nameElement = document.querySelector("h1");
-    const typedElement = document.querySelector(".typed");
-    const contactText = document.querySelector("#contacto p");
-    const projectsTitle = document.querySelector("#portfolio h2");
-    const curriculumTitle = document.querySelector("#curriculum h2");
-    const skillsTitle = document.querySelector("#skills h2");
-    const contactTitle = document.querySelector("#contacto h2");
 
     function changeLanguage(lang) {
         localStorage.setItem("language", lang);
 
-        // Cambiar textos
-        nameElement.textContent = texts[lang].name;
-        contactText.textContent = texts[lang].contactText;
-        projectsTitle.textContent = texts[lang].projects;
-        curriculumTitle.textContent = texts[lang].curriculum;
-        skillsTitle.textContent = texts[lang].skills;
-        contactTitle.textContent = texts[lang].contact;
+        // Traduce los textos generales
+        document.querySelector("#contacto p").textContent = texts[lang].contactText;
+        document.querySelector("#portfolio h2").textContent = texts[lang].projects;
+        document.querySelector("#curriculum h2").textContent = texts[lang].curriculum;
+        document.querySelector("#skills h2").textContent = texts[lang].skills;
+        document.querySelector("#contacto h2").textContent = texts[lang].contact;
 
-        // Reiniciar Typed.js con los nuevos textos
-        typedElement.innerHTML = "";
-        new Typed(".typed", {
-            strings: texts[lang].role,
-            typeSpeed: 50,
-            backSpeed: 30,
-            startDelay: 500,
-            backDelay: 1500,
-            loop: true,
-            showCursor: true,
-            cursorChar: "|"
+        // Traduce los placeholders de los inputs
+        document.getElementById("nombre").setAttribute("placeholder", texts[lang].namePlaceholder);
+        document.getElementById("telefono").setAttribute("placeholder", texts[lang].phonePlaceholder);
+        document.getElementById("email").setAttribute("placeholder", texts[lang].emailPlaceholder);
+        document.getElementById("asunto").setAttribute("placeholder", texts[lang].subjectPlaceholder);
+        document.getElementById("mensaje").setAttribute("placeholder", texts[lang].messagePlaceholder);
+
+        // Traduce los botones
+        document.getElementById("enviarMensaje").textContent = texts[lang].sendMessage;
+        document.getElementById("downloadBtn").textContent = texts[lang].downloadCV;
+
+        // Traduce los proyectos
+        document.querySelectorAll(".proyecto").forEach((proyecto, index) => {
+            if (texts[lang].projectsList[index]) {
+                proyecto.querySelector("h3").textContent = texts[lang].projectsList[index].title;
+                proyecto.querySelector("p").textContent = texts[lang].projectsList[index].desc;
+            }
         });
 
-        // Actualizar los bordes de las banderas
-        if (lang === "en") {
-            rightFlag.style.borderColor = "var(--color-azulClaro)";
-            leftFlag.style.borderColor = "white";
-        } else {
-            leftFlag.style.borderColor = "var(--color-azulClaro)";
-            rightFlag.style.borderColor = "white";
-        }
+        // Actualizar bordes de banderas
+        leftFlag.style.borderColor = lang === "es" ? "var(--color-azulClaro)" : "white";
+        rightFlag.style.borderColor = lang === "en" ? "var(--color-azulClaro)" : "white";
     }
 
-    // Detectar el idioma guardado en localStorage o establecer español por defecto
     const savedLanguage = localStorage.getItem("language") || "es";
-    switchToggle.checked = savedLanguage === "en"; // Activa el interruptor si el idioma es inglés
+    switchToggle.checked = savedLanguage === "en";
     changeLanguage(savedLanguage);
 
-    // Evento para cambiar el idioma al activar el interruptor
-    switchToggle.addEventListener("change", function () {
-        if (switchToggle.checked) {
-            changeLanguage("en");
-        } else {
-            changeLanguage("es");
-        }
-    });
+    switchToggle.addEventListener("change", () => changeLanguage(switchToggle.checked ? "en" : "es"));
 });
-
