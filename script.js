@@ -179,6 +179,30 @@ document.addEventListener("DOMContentLoaded", function () {
             sendMessage: "Enviar Mensaje",
             downloadCV: "Descargar CV",
 
+            //HEADER
+            headerNav: {
+                home: "INICIO",
+                projects: "PROYECTOS",
+                curriculum: "CURRICULUM",
+                skills: "TECNOLOGÍAS",
+                contact: "CONTACTO"
+            },
+            curriculumSection: {
+                education: "Educación",
+                experience: "Experiencia",
+                educationList: [
+                    { title: "Desarrollo de Aplicaciones Multiplataforma", school: "IES Cañada de la Encina", date: "2023-2025", desc: "Desarrollador de software con experiencia en Java, Kotlin, Python y frameworks como Spring Boot y Hibernate. También manejo bases de datos relacionales y NoSQL (Oracle, MongoDB)." },
+                    { title: "Grado en Periodismo", school: "Universidad de Castilla La-Mancha", date: "2014-2018", desc: "Periodista graduado por la UCLM con mención en periodismo multimedia, especializado en creación de contenido, SEO, storytelling y producción audiovisual." },
+                    { title: "Máster en Marketing y Comunicación Digital", school: "IMF Business School", date: "2019-2020", desc: "Especialista en marketing digital, branding y comunicación corporativa. Experiencia en SEO, SEM, email marketing y redes sociales." }
+                ],
+                experienceList: [
+                    { title: "Experiencia internacional", company: "Trabajos en Irlanda", date: "2021-2023", desc: "Experiencia viviendo y trabajando en el extranjero, esta etapa me permitió mejorar mi inglés y fortalecer mi capacidad para enfrentar nuevos desafíos en entornos dinámicos y multiculturales." },
+                    { title: "Redactor Especializado Motor", company: "SoyMotero.es", date: "2020-2022", desc: "Creación de contenido especializado en el sector del motor, combinando redacción, análisis y storytelling. Enfoque en SEO y optimización digital para mejorar la visibilidad y alcance de publicaciones." },
+                    { title: "Community Manager", company: "ADECA & CUSFIT", date: "2018-2020", desc: "Gestión de redes sociales, creación de contenido y estrategias de branding digital para aumentar la visibilidad y engagement. Implementación de campañas de marketing, análisis de métricas y optimización de la presencia online." }
+                ]
+            },
+        
+
             // Proyectos
             projectsList: [
                 { title: "Videojuego Gash & Cash", desc: "Videojuego 2D multiplataforma (Windows y Android). Creado con Godot engine." },
@@ -205,6 +229,30 @@ document.addEventListener("DOMContentLoaded", function () {
             messagePlaceholder: "Message",
             sendMessage: "Send Message",
             downloadCV: "Download CV",
+
+            //HEADER
+            headerNav: {
+                home: "HOME",
+                projects: "PROJECTS",
+                curriculum: "CURRICULUM",
+                skills: "TECHNOLOGIES",
+                contact: "CONTACT"
+            },
+            curriculumSection: {
+                education: "Education",
+                experience: "Experience",
+                educationList: [
+                    { title: "Multiplatform Application Development", school: "IES Cañada de la Encina", date: "2023-2025", desc: "Software developer experienced in Java, Kotlin, Python, and frameworks like Spring Boot and Hibernate. Also skilled in relational and NoSQL databases (Oracle, MongoDB)." },
+                    { title: "Degree in Journalism", school: "University of Castilla-La Mancha", date: "2014-2018", desc: "Journalist with a multimedia journalism specialization, expertise in content creation, SEO, storytelling, and audiovisual production." },
+                    { title: "Master in Marketing and Digital Communication", school: "IMF Business School", date: "2019-2020", desc: "Specialist in digital marketing, branding, and corporate communication. Experience in SEO, SEM, email marketing, and social media." }
+                ],
+                experienceList: [
+                    { title: "International Experience", company: "Jobs in Ireland", date: "2021-2023", desc: "Lived and worked abroad, improving English skills and strengthening my ability to face new challenges in dynamic and multicultural environments." },
+                    { title: "Specialized Automotive Writer", company: "SoyMotero.es", date: "2020-2022", desc: "Creation of specialized content in the motor sector, combining writing, analysis, and storytelling. Focus on SEO and digital optimization to improve the visibility and reach of publications." },
+                    { title: "Community Manager", company: "ADECA & CUSFIT", date: "2018-2020", desc: "Management of social networks, content creation, and digital branding strategies to increase visibility and engagement. Implementation of marketing campaigns, metric analysis, and online presence optimization." }
+                ]
+            },
+
 
             // Projects
             projectsList: [
@@ -251,6 +299,39 @@ document.addEventListener("DOMContentLoaded", function () {
                 proyecto.querySelector("p").textContent = texts[lang].projectsList[index].desc;
             }
         });
+
+        //Traduce el menu de navegacion
+                // Traduce el menú de navegación
+                const navItems = document.querySelectorAll("#nav ul li a");
+                if (navItems.length >= 5) {
+                    navItems[0].textContent = texts[lang].headerNav.home;
+                    navItems[1].textContent = texts[lang].headerNav.projects;
+                    navItems[2].textContent = texts[lang].headerNav.curriculum;
+                    navItems[3].textContent = texts[lang].headerNav.skills;
+                    navItems[4].textContent = texts[lang].headerNav.contact;
+                }
+
+        // Traduce el curriculum
+        document.querySelector("#curriculum .izquierda h3").textContent = texts[lang].curriculumSection.education;
+        document.querySelector("#curriculum .derecha h3").textContent = texts[lang].curriculumSection.experience;
+
+        document.querySelectorAll("#curriculum .izquierda .item").forEach((item, index) => {
+            if (texts[lang].curriculumSection.experienceList[index]) {
+                item.querySelector("h4").textContent = texts[lang].curriculumSection.educationList[index].title;
+                item.querySelector(".escuela").textContent = texts[lang].curriculumSection.educationList[index].school;
+                item.querySelector(".fecha").textContent = texts[lang].curriculumSection.educationList[index].date;
+                item.querySelector("p").textContent = texts[lang].curriculumSection.educationList[index].desc;
+            }
+        });
+        document.querySelectorAll("#curriculum .derecha .item").forEach((item, index) => {
+            if (texts[lang].curriculumSection.educationList[index]) {
+                item.querySelector("h4").textContent = texts[lang].curriculumSection.educationList[index].title;
+                item.querySelector(".escuela").textContent = texts[lang].curriculumSection.educationList[index].company;
+                item.querySelector(".fecha").textContent = texts[lang].curriculumSection.educationList[index].date;
+                item.querySelector("p").textContent = texts[lang].curriculumSection.educationList[index].desc;
+            }
+        });
+
 
         // Actualizar bordes de banderas
         leftFlag.style.borderColor = lang === "es" ? "var(--color-azulClaro)" : "white";
