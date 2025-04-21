@@ -324,11 +324,11 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
         document.querySelectorAll("#curriculum .derecha .item").forEach((item, index) => {
-            if (texts[lang].curriculumSection.educationList[index]) {
-                item.querySelector("h4").textContent = texts[lang].curriculumSection.educationList[index].title;
-                item.querySelector(".escuela").textContent = texts[lang].curriculumSection.educationList[index].company;
-                item.querySelector(".fecha").textContent = texts[lang].curriculumSection.educationList[index].date;
-                item.querySelector("p").textContent = texts[lang].curriculumSection.educationList[index].desc;
+            if (texts[lang].curriculumSection.experienceList[index]) {
+                item.querySelector("h4").textContent = texts[lang].curriculumSection.experienceList[index].title;
+                item.querySelector(".escuela").textContent = texts[lang].curriculumSection.experienceList[index].company;
+                item.querySelector(".fecha").textContent = texts[lang].curriculumSection.experienceList[index].date;
+                item.querySelector("p").textContent = texts[lang].curriculumSection.experienceList[index].desc;
             }
         });
 
